@@ -40,6 +40,9 @@ function Get-GitMatch([string]$sub) {
 
 $commit = Get-GitMatch 'commit'
 if ($commit.Success) {
+    if ((Get-GitMatch 'switch').Success -or (Get-GitMatch 'checkout').Success) {
+        Request-Confirmation 'Command switches branches and commits; it may commit directly on main/master. Run them as separate steps on a feature branch.'
+    }
     $gitArgs = @()
     $dir = [regex]::Match($commit.Value, "(?:^|\s)-C\s+($tok)")
     if ($dir.Success) { $gitArgs = @('-C', $dir.Groups[1].Value.Trim('"', "'")) }
