@@ -20,16 +20,23 @@ def resolve(source, target, mode, parts):
         return ("external", target)  # report only; never fetch
     if mode not in (None, "Internal"):
         return ("invalid", target)
-    if any(ord(c) < 32 or ord(c) == 127 for c in target):
+    if target.startswith(" ") or any(ord(c) < 32 or ord(c) == 127 for c in target):
         return ("invalid", target)
     try:
         u = urlsplit(target)
+        if "%2f" in u.path.lower():
+            return ("invalid", target)
         path = unquote(u.path, errors="strict")
     except (ValueError, UnicodeError):
         return ("invalid", target)
     if (u.scheme or u.netloc or u.query or u.fragment or not path
             or "\\" in path or "%" in path or ":" in path
             or any(ord(c) < 32 or ord(c) == 127 for c in path)):
+        return ("invalid", target)
+    path_segments = path.split("/")
+    if path.startswith("/"):
+        path_segments = path_segments[1:]
+    if any(not segment for segment in path_segments) or path_segments[-1] in (".", ".."):
         return ("invalid", target)
     segments = [] if path.startswith("/") else posixpath.dirname(source).split("/")
     segments = [s for s in segments if s]
@@ -124,6 +131,10 @@ class Tests(unittest.TestCase):
     def test_raw_and_encoded_controls(self):
         for control in ("\t", "\n", "\r", "\x00", "\x7f", "%09", "%0a", "%0d", "%00", "%7f"):
             target = "media/im" + control + "age1.png"
+            with self.subTest(target=target):
+                self.assertEqual(resolve("word/document.xml", target, None, fixture()), ("invalid", target))
+    def test_malformed_target_aliases(self):
+        for target in (" media/image1.png", "media%2Fimage1.png", "media%2fimage1.png", "media/image1.png/", "media//image1.png", "media/image1.png/.", "media/image1.png/%2e", "media/image1.png/.."):
             with self.subTest(target=target):
                 self.assertEqual(resolve("word/document.xml", target, None, fixture()), ("invalid", target))
     def test_duplicate(self):

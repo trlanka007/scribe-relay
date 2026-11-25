@@ -1,6 +1,6 @@
 # M3.4 OPC relationship probe
 
-Refs #91 #92. Run `python -B spikes/m3/parsers/opc_probe.py` from repository root. Ten unittest cases passed in an in-memory Python 3.12 source execution on 2026-11-25, including raw and percent-encoded control targets; the exact file invocation remains pending. PR #142 separately records 11 passing safety tests at 2d65ca5 and a traversal mutation check.
+Refs #91 #92. Run `python -B spikes/m3/parsers/opc_probe.py` from repository root. Eleven unittest cases passed in an in-memory Python 3.12 source execution on 2026-11-25, including malformed target aliases and raw and percent-encoded controls; the exact file invocation remains pending. PR #142 separately records 11 passing safety tests at 2d65ca5 and a traversal mutation check.
 
 ## Candidate design
 Resolve references by (source part, relationship ID), not globally. Inventory ordered occurrences independently of asset identity: an image referenced twice is two placements but may share one asset. Distinguish resolved, missing, invalid, external and unbound references. Never fetch external resources implicitly. Retain source part and structural path. Avoid recursive graph expansion without visited-set and resource bounds.
