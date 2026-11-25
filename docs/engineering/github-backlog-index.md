@@ -1,6 +1,6 @@
 # GitHub backlog index — epic to task
 
-Snapshot: 2026-11-25. Issue state and labels in GitHub are operational truth; this index records stable mappings, not live status. Parent links are Markdown issue references, not native GitHub sub-issue relationships. Existing documentation, requirements and experiment protocols remain authoritative.
+Snapshot: 2026-11-25. Issue state and labels in GitHub are operational truth; this index records stable mappings, not live status. Native GitHub sub-issue relationships were independently verified on 2026-11-25: 119 of 119 expected links across 128 issues, no mismatches or orphans. This Markdown index mirrors the initial hierarchy for navigation; native GitHub relationships are the operational source of truth. See [workflow](spec-driven-workflow.md). Existing documentation, requirements and experiment protocols remain authoritative.
 
 ## Repository governance (M0) — [#11](https://github.com/trlanka007/scribe-relay/issues/11)
 

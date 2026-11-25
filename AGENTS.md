@@ -11,3 +11,5 @@ ScribeRelay is in documentation-first discovery. Read README.md and docs/README.
 - Keep changes scoped to a reviewable branch and pull request. Do not merge without owner approval or force-push.
 - Document unresolved assumptions, alternatives and test limitations.
 - Technology choices and licensing remain provisional. Do not introduce production dependencies or infrastructure without review.
+
+- Maintain native GitHub Epic → Feature → PBI → Task sub-issue relationships. Verify the parent before claiming backlog completion; if connector writes are unavailable, report the gap and use an owner-approved native GitHub mechanism. Do not substitute parent text for a native relationship.

@@ -22,7 +22,7 @@ For research and documentation, PBI means an evidence or decision outcome, not a
 7. Implement: owner-approved scope only; use feature branch and PR; tests and evidence accompany code.
 8. Verify/converge: actual target-editor tests and reconciliation; update specs and evidence when discoveries change assumptions; close issues only after acceptance.
 
-This adapts the upstream workflow; it does not claim official Spec Kit commands or GitHub native hierarchy are installed. The existing PRD and acceptance criteria are the master scope; feature specs are narrower derivations.
+This adapts the upstream workflow; it does not claim official Spec Kit commands are installed. The existing PRD and acceptance criteria are the master scope; feature specs are narrower derivations.
 
 ## Labels
 - type:epic, type:feature, type:pbi, type:task — exactly one per backlog item.
@@ -34,7 +34,14 @@ This adapts the upstream workflow; it does not claim official Spec Kit commands 
 - priority:P0/P1 — production scope where assigned; kind:validation for explicit verification seeds.
 
 ## Operational rules
-No direct main writes; owner approval for merges. M2/M5 explicit approvals and M6 readiness block M7. Isolated spikes need owner-approved scope; no LinkedIn automation. No task estimates, assignees, dates or production stack chosen here. Keep GitHub issues operational; link rather than duplicate requirement details. Use issue checkboxes for tasks and update spec task references when scope changes. Native sub-issues and milestone API writes were not exposed by the current connector; Markdown relationships and labels are the supported baseline.
+No direct main writes; owner approval for merges. M2/M5 explicit approvals and M6 readiness block M7. Isolated spikes need owner-approved scope; no LinkedIn automation. No task estimates, assignees, dates or production stack chosen here. Keep GitHub issues operational; link rather than duplicate requirement details. Use issue checkboxes for tasks and update spec task references when scope changes. Native GitHub sub-issue relationships are mandatory; see the hierarchy rules below. Native milestone assignment remains unconfigured; milestone labels provide planning alignment.
+
+## Native issue hierarchy (verified 2026-11-25)
+Use GitHub native sub-issues for Epic → Feature → PBI → Task. Epics are roots. Every non-epic must have exactly one parent of the preceding type, including documentation debt and conditional P1 work. Do not use a textual parent header as a substitute for the relationship; redundant parent headers may be removed after native verification. Documentation index links remain useful for navigation and stable-ID traceability.
+
+For each newly created or moved issue, establish and verify the native relationship before declaring backlog setup complete. Check parent identity, type, milestone alignment, and absence of cycles; do not silently reparent. When the GitHub connector cannot write relationships, use owner-controlled authenticated GitHub CLI or another approved native GitHub mechanism. Report any unlinked issue explicitly; do not claim native hierarchy completion on the basis of Markdown links. Native links do not establish execution dependencies or authorize production coding.
+
+Baseline: 128 issues, 119 expected native links; all 119 verified on 2026-11-25. Direct child counts matched the mapping; no orphan or incorrect parent was observed. Description cleanup is cosmetic and not a gate.
 
 ## Existing debt
 Issues #5 and #7 map to M2.2; #6 maps to M2.1. Original documentation, pr-review and tech-debt labels retained. They are not core implementation. M0 historical issues closed with existing governance evidence; M1/M2 remain in review despite merged PRs.
