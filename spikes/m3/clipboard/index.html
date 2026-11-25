@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>M3 clipboard experiment</title>
+<style>body{font:16px system-ui;max-width:760px;margin:2rem auto;padding:0 1rem}button{margin:.4rem}#receiver{min-height:5rem;border:1px solid;padding:1rem}pre{white-space:pre-wrap}table,td,th{border:1px solid;border-collapse:collapse;padding:.3rem}</style>
+<h1>M3.2 — local clipboard experiment</h1>
+<p>Synthetic data only. Copy explicitly, then paste into the local receiver or manually into an unpublished LinkedIn Article. No network calls, storage or editor automation. This is not production code.</p>
+<button id="rich">Copy HTML + plain text</button><button id="plain">Copy plain text (format loss)</button><button id="select">Select rendered fixture (manual Ctrl+C)</button>
+<p id="status" role="status" aria-live="polite">No action yet.</p><pre id="env"></pre>
+<section id="fixture">
+<h2>F02 — Formatting checkpoint</h2>
+<p>F01 — Unicode: café, తెలుగు, 日本語, αβγ.<br>Second line.</p>
+<p>F02 — <strong>Bold text</strong>, <em>italic text</em>, <code>inlineCode()</code>.</p>
+<h3>F03 — Links and lists</h3>
+<p><a href="https://example.com/">Example reference</a></p>
+<ol><li>First ordered item</li><li>Second ordered item</li></ol>
+<ul><li>Parent item<ul><li>Nested item</li></ul></li><li>Second unordered item</li></ul>
+<blockquote>F04 — Synthetic quotation.</blockquote><hr>
+<table><thead><tr><th>Feature</th><th>Value</th></tr></thead><tbody><tr><td>Alpha</td><td>One</td></tr><tr><td>Beta</td><td>Two</td></tr></tbody></table>
+<pre><code>const value = 42;
+if (value &gt; 0) {
+  console.log("fixture");
+}</code></pre>
+</section>
+<h2>Local diagnostic receiver</h2>
+<p>Focus and paste manually. The handler cancels default insertion and displays clipboard strings as inert text only. Never paste private data.</p>
+<div id="receiver" tabindex="0" role="textbox" aria-label="Synthetic paste receiver" contenteditable="plaintext-only">Paste here</div>
+<button id="clear">Clear diagnostic</button><pre id="report"></pre>
+<script>
+"use strict";
+const el=id=>document.getElementById(id);
+const fixture=el("fixture");
+const status=s=>{el("status").textContent=s;};
+el("env").textContent=JSON.stringify({secureContext:isSecureContext,origin:location.origin,clipboardWrite:typeof navigator.clipboard?.write==="function",clipboardItem:typeof ClipboardItem!=="undefined",userAgent:navigator.userAgent},null,2);
+const plainText=()=>fixture.innerText;
+el("rich").addEventListener("click",async()=>{
+ try{
+  if(!isSecureContext || typeof ClipboardItem==="undefined" || !navigator.clipboard?.write) throw new Error("Rich clipboard unavailable in this context");
+  await navigator.clipboard.write([new ClipboardItem({"text/html":new Blob([fixture.innerHTML],{type:"text/html"}),"text/plain":new Blob([plainText()],{type:"text/plain"})})]);
+  status("Rich write resolved. Destination fidelity remains unverified.");
+ }catch(e){status("Rich write failed: "+e.name+": "+e.message+". Select fixture and copy manually, or choose explicit plain text.");}
+});
+el("plain").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(plainText());status("Plain text written; formatting intentionally not included.");}catch(e){status("Plain write failed: "+e.name+". Select and copy manually.");}});
+el("select").addEventListener("click",()=>{const range=document.createRange();range.selectNodeContents(fixture);const s=getSelection();s.removeAllRanges();s.addRange(range);status("Fixture selected. Press Ctrl+C or Cmd+C yourself.");});
+el("receiver").addEventListener("paste",e=>{e.preventDefault();const d=e.clipboardData;if(!d){status("No clipboard data exposed");return;}el("report").textContent=JSON.stringify({types:Array.from(d.types),html:d.getData("text/html"),plain:d.getData("text/plain")},null,2);status("Local paste observed; this is not LinkedIn evidence.");});
+el("clear").addEventListener("click",()=>{el("report").textContent="";status("Diagnostic cleared.");});
+</script></html>
