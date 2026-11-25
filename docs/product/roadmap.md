@@ -24,3 +24,6 @@ LinkedIn editor behavior and platform terms; browser clipboard capabilities; imp
 
 ## Risk-driven sequencing
 Validate rich-text paste first, then source inventory and images, then unsupported transformations. Compare effort against ToolHa and manual import using identical fixtures. If platform constraints invalidate core value, reassess product scope before investing in infrastructure.
+
+## Execution detail
+See the [zoomable milestone execution plan](../engineering/milestone-execution-plan.md) for work packages, task seeds, dependencies and evidence gates. Architecture hypotheses are in the [C4 views](../architecture/c4/README.md). These do not change approved scope or select a stack.

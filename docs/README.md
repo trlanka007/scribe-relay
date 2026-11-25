@@ -1,6 +1,6 @@
 # Documentation index
 
-Status: Discovery and requirements merged; feasibility proposed | 2026-11-25
+Status: Discovery, requirements and feasibility documentation merged; experiments pending | 2026-11-25
 
 ## Discovery (PR #1)
 - [Vision](product/vision.md)
@@ -19,6 +19,12 @@ Status: Discovery and requirements merged; feasibility proposed | 2026-11-25
 - [Experiment protocol](research/platform-compatibility.md)
 - [Compatibility matrix](testing/formatting-compatibility-matrix.md)
 - [Synthetic fixtures](../tests/fixtures/README.md)
+
+## Zoomable planning and architecture (proposed)
+- [Milestone execution plan: 5,000 to ground level](engineering/milestone-execution-plan.md)
+- [Work-package catalog](engineering/work-packages.md)
+- [Execution backlog](engineering/execution-backlog.md)
+- [C4-inspired architecture views](architecture/c4/README.md)
 
 ## Planned reviews
 1. Discovery and requirements: merged baselines; explicit document acceptance labels remain to be recorded.
