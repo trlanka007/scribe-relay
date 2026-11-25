@@ -26,6 +26,11 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Execution backlog](engineering/execution-backlog.md)
 - [C4-inspired architecture views](architecture/c4/README.md)
 
+## Specification-driven backlog (proposed)
+- [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
+- [Spec-driven delivery workflow](engineering/spec-driven-workflow.md)
+- [Feature specification seeds](../specs/README.md)
+
 ## Planned reviews
 1. Discovery and requirements: merged baselines; explicit document acceptance labels remain to be recorded.
 2. Feasibility: platform constraints, evidence and technical risks.
