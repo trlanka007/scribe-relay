@@ -100,7 +100,8 @@ class Tests(unittest.TestCase):
     def test_dtd(self):
         with self.assertRaises(ValueError): preflight(package([("word/document.xml","<!DOCTYPE a><a/>")]))
     def test_path(self):
-        with self.assertRaises(ValueError): preflight(package([("../escape", "x")]))
+        data = package([("word/document.xml", XML), ("../escape", "x")])
+        with self.assertRaisesRegex(ValueError, "unsafe or duplicate path"): preflight(data)
     def test_duplicate(self):
         import warnings
         with warnings.catch_warnings():
