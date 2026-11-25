@@ -20,6 +20,8 @@ def resolve(source, target, mode, parts):
         return ("external", target)  # report only; never fetch
     if mode not in (None, "Internal"):
         return ("invalid", target)
+    if any(ord(c) < 32 or ord(c) == 127 for c in target):
+        return ("invalid", target)
     try:
         u = urlsplit(target)
         path = unquote(u.path, errors="strict")
@@ -119,6 +121,11 @@ class Tests(unittest.TestCase):
         for target in ("../../escape","%2e%2e/%2e%2e/escape","//host/a","https://host/a","a%5cb","a%00b","a%252fb","a?query","a#fragment"):
             with self.subTest(target=target):
                 self.assertEqual(resolve("word/document.xml",target,None,fixture())[0],"invalid")
+    def test_raw_and_encoded_controls(self):
+        for control in ("\t", "\n", "\r", "\x00", "\x7f", "%09", "%0a", "%0d", "%00", "%7f"):
+            target = "media/im" + control + "age1.png"
+            with self.subTest(target=target):
+                self.assertEqual(resolve("word/document.xml", target, None, fixture()), ("invalid", target))
     def test_duplicate(self):
         p=fixture(); p["word/_rels/document.xml.rels"]=rels(("rId1","a",None),("rId1","b",None))
         with self.assertRaisesRegex(ValueError,"duplicate"): graph(p)
