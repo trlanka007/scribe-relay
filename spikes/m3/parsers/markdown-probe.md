@@ -1,0 +1,8 @@
+# F10 Markdown source ledger experiment
+
+Refs #91 #92. Run `python -B spikes/m3/parsers/markdown_probe.py` in the isolated parser environment. On 2026-11-25 all six unittest cases passed with markdown-it-py 4.2.0 and Mistune 3.2.1; the executed file's Git blob hash matches the committed source (`d3feb144e03e70b9d99ec0800c7d5e25ec4ec38f`). The current Mistune pin is 3.3.4 and was not exercised. No rendering or asset fetching occurred.
+
+Eight synthetic inputs cover reference definitions, unsafe and entity-encoded targets, malformed link syntax, raw HTML, missing-image syntax, Unicode/CRLF and an unclosed fence. The exact UTF-8 ledger covers every byte in these fixtures. Both parsers resolve the reference link and leave the malformed link without a link node. markdown-it rejects the tested literal javascript target as a link; Mistune retains it. Both expose HTML tokens/nodes, image syntax and no link node in the fenced example. The encoded-target case is exercised for source ledger coverage only; its security disposition is not asserted.
+
+## Implications and limitations
+Physical line accounting preserves input bytes but does not establish semantic source-to-output reconciliation. Block maps are not precise inline spans. Missing-image syntax recognition is not filesystem resolution. The parser difference is evidence for an independent output URL policy, not a security certification or a library recommendation. Next: associate source spans with explicit dispositions, verify encoded target variants and reference-definition accounting, and reject ambiguous/unaccounted content rather than silently dropping it. No production dependency, issue closure, or LinkedIn profile change.
