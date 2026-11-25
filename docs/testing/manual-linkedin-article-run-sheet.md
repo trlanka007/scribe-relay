@@ -40,7 +40,7 @@ Fixture: [linked synthetic HTML](../../tests/fixtures/linkedin-rich-text.html). 
 | E08 | Blockquote: “F04 — Synthetic quotation.” | F04 |
 | E09 | Horizontal divider | F04 |
 | E10 | Table: headers “Feature” and “Value”; rows “Alpha / One”, “Beta / Two” | F07 |
-| E11 | Preformatted three-line JavaScript block: `const value = 42;`, `if (value > 0) {`, `  console.log("fixture");` and closing `}` | F07 |
+| E11 | Preformatted four-line JavaScript block: `const value = 42;`, `if (value > 0) {`, `  console.log("fixture");` and closing `}` | F07 |
 
 All 11 IDs must receive individual paste and reopen observations. Record structural fidelity *and* text preservation separately. For example, a flattened table with all cell text is transformed, not an unqualified preserved table. For code, record exact whitespace and newlines even if visual syntax highlighting changes.
 
