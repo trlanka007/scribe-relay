@@ -18,6 +18,7 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Platform constraints](architecture/feasibility-and-constraints.md)
 - [Dated official platform evidence recheck (M3.1)](research/official-platform-evidence-2026-11-25.md)
 - [Manual Article paste/reopen run sheet (M3.2)](testing/manual-linkedin-article-run-sheet.md)
+- [Interim parser feasibility synthesis (M3.4)](research/parser-feasibility-synthesis.md)
 - [Experiment protocol](research/platform-compatibility.md)
 - [Compatibility matrix](testing/formatting-compatibility-matrix.md)
 - [Synthetic fixtures](../tests/fixtures/README.md)
