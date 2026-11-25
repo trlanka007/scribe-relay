@@ -20,7 +20,7 @@ def resolve(source, target, mode, parts):
         return ("external", target)  # report only; never fetch
     if mode not in (None, "Internal"):
         return ("invalid", target)
-    if target.startswith(" ") or any(ord(c) < 32 or ord(c) == 127 for c in target):
+    if target.startswith((" ", "//")) or any(ord(c) < 32 or ord(c) == 127 for c in target):
         return ("invalid", target)
     try:
         u = urlsplit(target)
@@ -134,7 +134,7 @@ class Tests(unittest.TestCase):
             with self.subTest(target=target):
                 self.assertEqual(resolve("word/document.xml", target, None, fixture()), ("invalid", target))
     def test_malformed_target_aliases(self):
-        for target in (" media/image1.png", "media%2Fimage1.png", "media%2fimage1.png", "media/image1.png/", "media//image1.png", "media/image1.png/.", "media/image1.png/%2e", "media/image1.png/.."):
+        for target in ("///word/media/image1.png", "//word/media/image1.png", " media/image1.png", "media%2Fimage1.png", "media%2fimage1.png", "media/image1.png/", "media//image1.png", "media/image1.png/.", "media/image1.png/%2e", "media/image1.png/.."):
             with self.subTest(target=target):
                 self.assertEqual(resolve("word/document.xml", target, None, fixture()), ("invalid", target))
     def test_duplicate(self):
