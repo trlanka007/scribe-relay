@@ -38,6 +38,8 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [C4-inspired architecture views](architecture/c4/README.md)
 - [Solution architecture review preparation (M5.1)](architecture/solution-architecture.md)
 - [Canonical model and provenance review (M5.2)](architecture/canonical-document-model.md)
+- [Conversion specification review (M5.3)](architecture/conversion-specification.md)
+- [Destination adapter and profile review (M5.3)](architecture/destination-adapters.md)
 
 ## Specification-driven backlog (proposed)
 - [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
