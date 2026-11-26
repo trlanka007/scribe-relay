@@ -44,6 +44,7 @@ def main():
     if result["blobs_match"]:
         child_env = os.environ.copy()
         child_env.pop("PYTHONOPTIMIZE", None)
+        child_env["PYTHONIOENCODING"] = "utf-8"
         for script in SCRIPTS:
             try:
                 p = subprocess.run([sys.executable,"-X","utf8","-B",str(ROOT/script)],cwd=ROOT,
