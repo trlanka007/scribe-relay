@@ -14,20 +14,20 @@ Date/time, tester, OS/browser version, source revision, source SVG hash, PNG SHA
 
 ## Separate manual runs
 
-1. F05: copy rendered selection from heading through Anchor B, paste once into a fresh personal Article draft, record text, image, placement, caption/alt controls and any warnings before correction. Allow autosave, leave and reopen through Manage > Drafts, record again.
-2. F06 body: in a fresh draft, enter anchors and insert the generated local PNG through native editor controls. Record actual placement, caption and alt availability, visible size/crop and steps. Reopen after autosave and inspect again.
-3. F06 cover: in a distinct fresh draft, enter synthetic title and body text to begin writing, then upload the PNG through the cover control. Allow autosave, record cover acceptance, crop and displayed text visibility, leave and reopen through Manage > Drafts, and record whether the cover persists separately from body media. If saving or reopening cannot be confirmed, record persistence as Unknown. Do not infer cover results from body results.
+1. F05: copy rendered selection from heading through Anchor B, paste once into a fresh personal Article draft, record text, image, placement, caption/alt controls and any warnings before correction. Record timed corrections and the resulting pre-reopen state separately. Allow autosave, leave and reopen through Manage > Drafts, then record again.
+2. F06 body: in a fresh draft, enter anchors and insert the generated local PNG through native editor controls. Record initial placement, caption and alt availability, visible size/crop and steps; record any timed corrections and the resulting pre-reopen state separately. Reopen after autosave and inspect again.
+3. F06 cover: in a distinct fresh draft, enter synthetic title and body text to begin writing, then upload the PNG through the cover control. Record initial cover acceptance, crop and displayed text visibility, then any timed corrections and the resulting pre-reopen state. Allow autosave, leave and reopen through Manage > Drafts, and record whether the cover persists separately from body media. If saving or reopening cannot be confirmed, record persistence as Unknown. Do not infer cover results from body results.
 4. Repeat separately in Edge and Chrome. Do not publish. Manually delete synthetic drafts when finished.
 
-| Observation | At paste/upload | After reopen | Outcome / recovery |
-|---|---|---|---|
-| Anchor A and B text/order | Pending | Pending | Unknown |
-| Body image presence/count | Pending | Pending | Unknown |
-| Image placement between anchors | Pending | Pending | Unknown |
-| Image visible content/crop | Pending | Pending | Unknown |
-| Caption text/position | Pending | Pending | Unknown |
-| Alt availability/value via editor controls | Pending | Pending | Unknown |
-| Separate cover acceptance/crop | Pending | Pending | Unknown |
+| Observation | At paste/upload | After corrections, before reopen | After reopen | Outcome / recovery |
+|---|---|---|---|---|
+| Anchor A and B text/order | Pending | Pending | Pending | Unknown |
+| Body image presence/count | Pending | Pending | Pending | Unknown |
+| Image placement between anchors | Pending | Pending | Pending | Unknown |
+| Image visible content/crop | Pending | Pending | Pending | Unknown |
+| Caption text/position | Pending | Pending | Pending | Unknown |
+| Alt availability/value via editor controls | Pending | Pending | Pending | Unknown |
+| Separate cover acceptance/crop | Pending | Pending | Pending | Unknown |
 
 Mark not applicable for rows outside the specific run, not preserved. If a control is absent or unobservable, record Unknown or observed unsupported with reason; never infer alt text or persisted binary equality from appearance. Record active duration, manual edits and recovery steps separately. No matrix promotion without repeatable evidence.
 
