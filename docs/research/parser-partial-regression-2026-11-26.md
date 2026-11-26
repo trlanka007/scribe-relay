@@ -42,3 +42,36 @@ This script uses standard library only. Results apply to this exact blob in this
 Use an owner-controlled clean LF checkout and isolated environment with exact requirements. The existing runner must record all ten blob identities, package versions and eight child outputs. Do not relax hash/pin checks to turn a diagnostic run into a pass. If pins cannot be installed, preserve the actual installation failure and review dependency choices separately. See [regression protocol](../../spikes/m3/parsers/regression-run.md).
 
 #151 remains open; this is partial evidence only. No changes to source, dependencies, compatibility matrix or production gates. M3.2/3.3 still require manual destination evidence; M2/M5/M6 approval remains mandatory before M7.
+
+
+## Independent follow-up execution (after PR #165 merge)
+
+Baseline main e421204b2dc64f5186dc2dfb9bd2c65582eaa0ce. Actual container command output confirmed Python 3.13.5, the same four installed versions listed above, and git ls-remote exit 128 (Could not resolve host: github.com). No checkout or package installation succeeded or was claimed.
+
+Reconstructed two connector-fetched scripts as UTF-8 LF files in a temporary directory. Before running each, compared git hash-object to its manifest identity. Both matched exactly:
+
+| Script | Actual Git blob | Exit | unittest result |
+|---|---|---:|---|
+| disposition_probe.py | 7f5f605728ba3e816b114f5c1b650a1c18162888 | 0 | 7 tests, OK (0.001s) |
+| safety_probe.py | ee9d3a953b294fbf9c2cba3de54548fe511ceedd | 0 | 11 tests, OK (0.004s) |
+
+Commands: git hash-object on each file, followed on identity match by env -u PYTHONOPTIMIZE python -X utf8 -B <script>. Both standard-library probes, no network calls needed for execution. The disposition result independently confirms the earlier recorded result; do not count it twice as unique coverage. Actual safety unittest output (test names and outcomes):
+
+```text
+test_bad_xml ... ok
+test_complex_inventory ... ok
+test_dtd ... ok
+test_duplicate ... ok
+test_external ... ok
+test_invalid_zip ... ok
+test_missing_body ... ok
+test_path ... ok
+test_reconciliation ... ok
+test_size ... ok
+test_urls ... ok
+
+Ran 11 tests in 0.004s
+OK
+```
+
+18 unique test methods passed across two exact-blob scripts in this follow-up. This is not a pinned-environment aggregate run: six scripts remain unexecuted in this follow-up, the manifest is not fully verified locally, and two package pins differ. The safety probe uses deliberately small synthetic limits and a multiset reconciliation check, not full ordered semantics, OPC conformance or production security assurance. No source changes or acceptance promotion. #151 stays open.
