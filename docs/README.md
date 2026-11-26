@@ -21,6 +21,7 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Interim parser feasibility synthesis (M3.4)](research/parser-feasibility-synthesis.md)
 - [Manual media run sheet (M3.3)](testing/manual-linkedin-media-run-sheet.md)
 - [Preparation effort benchmark (M3.5)](research/preparation-effort-benchmark.md)
+- [Interim feasibility gate review (M3.6)](research/feasibility-gate-review.md)
 - [Experiment protocol](research/platform-compatibility.md)
 - [Compatibility matrix](testing/formatting-compatibility-matrix.md)
 - [Synthetic fixtures](../tests/fixtures/README.md)
