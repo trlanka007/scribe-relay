@@ -1,0 +1,49 @@
+# M3.5 / F11 preparation effort benchmark
+
+Status: proposed protocol; no measured baseline | 2026-11-25
+Refs #93, AC-12. Dependency M3.2.b (#83) remains open. This prepares the measurement artifact without claiming that the blocked baseline task is complete.
+
+## Comparison arms and fixtures
+
+A = manual reconstruction using the native LinkedIn Article editor, without a formatter.
+B = ToolHa-assisted preparation and native editor corrections, where the tool accepts the same synthetic input.
+C = ScribeRelay-assisted preparation, deferred until a functioning candidate in M7.
+
+Use identical authored content and expected inventory across arms. Start with the synthetic HTML fixture E01–E11 and media fixture; add a synthetic Markdown and generated DOCX article with human-reviewed inventory. Record exact fixture hash, input representation and any conversion needed to make an arm accept it. Include that conversion time; do not silently substitute an easier fixture. A real certification article requires separate sanitization and owner permission. Do not upload private documents to external tools.
+
+## Measurement boundary
+
+Start at the first preparation action with source available and editor ready. Stop when the unpublished draft meets the predefined content/formatting target and is ready for reopen inspection. Include source conversion, clipboard, manual formatting, image placement, correction and active verification. Measure active seconds; record waiting seconds separately (including autosave). Record elapsed wall time separately. Pause active timing only during genuinely idle waits or interruptions; log reason. Record clicks, edits, media actions, omissions, transformations and unresolved issues. Report actual reopen observations separately; failed persistence prevents an equivalent successful result. No publishing or automated LinkedIn interaction.
+
+## Run schedule
+
+For each fixture and reference browser/device, perform three paired A/B runs as a baseline, using orders AB, BA, AB (reverse starting order on the next fixture). At M7 perform at least three paired A/C runs on the same fixture and comparable environment, using AC, CA, AC or reverse. Re-measure A when environment or editor changes materially. Keep fresh drafts, same tester, comparable starting state, and record practice runs separately. Three is the minimum, not statistical proof. Use identical target quality in each pair; record failed/abandoned attempts, do not substitute zeros or cherry-pick faster successes. Mark unavailable arms as unavailable with reason.
+
+For every run, link a completed evidence sheet that covers the actual fixture inventory: use the [Article per-element result sheet](../testing/manual-linkedin-article-run-sheet.md#4-per-element-result-sheet-duplicate-for-each-run) for HTML E01–E11, the [media run sheet](../testing/manual-linkedin-media-run-sheet.md#separate-manual-runs) for media, and a run-specific per-element sheet based on the human-reviewed inventory for Markdown or DOCX. Record each expected item at the initial paste or insertion, after timed corrections in the final pre-reopen draft, and after reopen, including fixture-specific structure, link targets, code whitespace, image placement/content, captions and alt text where applicable. Keep initial mismatches visible and count their correction time and actions. Assess pair equivalence at the corrected final state and after reopen: initial differences do not disqualify a pair if both final drafts meet the target and preserve it after reopen. Any missing or Unknown item at either final checkpoint makes pair equivalence Unknown. Do not count such a pair among equivalent successful timing comparisons.
+
+## Run record (duplicate per arm)
+
+| Field | Value |
+|---|---|
+| Pair ID, fixture ID/hash, arm, order | Pending |
+| Date, tester, OS/browser/tool version, device | Pending |
+| Starting state / preparation route | Pending |
+| Active seconds by preparation, transfer, correction, media, verification | Pending |
+| Idle seconds and reason / elapsed seconds | Pending |
+| Clicks, edits, media insertion actions | Pending |
+| Completed fixture-specific result sheet for this run/arm (link or evidence reference) | Pending |
+| Expected inventory total, preserved, transformed, manual, unsupported, unknown | Pending |
+| Target equivalence and paste/reopen outcome | Pending |
+| Failed/abandoned reason, sanitized evidence | Pending |
+
+## Analysis
+
+For each fixture report sample counts, individual paired observations, median active seconds for each arm, absolute difference, reduction = 100 × (median A − median comparison) / median A when median A > 0, and median paired reductions separately. Do not combine unequal fixture sets. Disclose failures and unavailable arms; report timing comparisons only for equivalent successful pairs with at least three pairs, otherwise insufficient evidence. AC-12's proposed ≥50% median active time reduction applies to A/C, not to A/B. Report quality and unresolved loss alongside time; a faster but incomplete draft is not success. No claim of statistical significance from three pairs.
+
+## Existing baseline evidence
+
+The [ToolHa evaluation](competitor-evaluations.md) records a qualitative user observation of acceptable text transfer, with inline images trimmed from the shared output. No timings, paired runs or per-element persistence results exist. Therefore manual baseline = unknown, ToolHa baseline = unknown, ScribeRelay comparison = not yet available. Do not infer a numeric improvement.
+
+## Gate
+
+M3.5 remains open until both baseline arms—A/manual and B/ToolHa—have evidence, or the owner explicitly dispositions each unavailable arm. An unavailable or dispositioned arm is not a measured result and cannot support an A/B comparison or improvement claim. M7 owns final A/C comparison. #151 parser reproducibility and F01–F08 destination validation are not waived. No production implementation, compatibility profile promotion or new acceptance targets.
