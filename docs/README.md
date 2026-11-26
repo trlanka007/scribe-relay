@@ -43,6 +43,9 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Technology stack evaluation (M5.4)](architecture/technology-stack.md)
 - [Proposed stack ADRs (M5.4)](architecture/adr/proposed-stack-decisions.md)
 
+## Engineering readiness (proposed)
+- [Security and privacy threat model review (M6.1)](architecture/security-and-privacy.md)
+
 ## Specification-driven backlog (proposed)
 - [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
 - [Spec-driven delivery workflow](engineering/spec-driven-workflow.md)
