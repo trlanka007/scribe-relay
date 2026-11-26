@@ -13,3 +13,5 @@ ScribeRelay is in documentation-first discovery. Read README.md and docs/README.
 - Technology choices and licensing remain provisional. Do not introduce production dependencies or infrastructure without review.
 
 - Maintain native GitHub Epic → Feature → PBI → Task sub-issue relationships. Verify the parent before claiming backlog completion; if connector writes are unavailable, report the gap and use an owner-approved native GitHub mechanism. Do not substitute parent text for a native relationship.
+
+- Every pull request must identify the relevant existing task issue(s) in a dedicated Task traceability section of its description, using GitHub issue links and the stable task IDs. Distinguish tasks advanced from related dependencies or debt; state whether completion evidence is satisfied. Use closing keywords only when the task's completion criteria are met and the required approvals are recorded. Prefer native PR-to-issue linkage when available; ordinary cross-references do not substitute for verified native linkage. Report any connector limitation explicitly.
