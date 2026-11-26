@@ -43,7 +43,8 @@ Context: AC-01–12 and future M6 engineering readiness.
 Proposal: layered deterministic domain/fixture tests, local browser tests and human destination validation; immutable build artifact and rollback review.
 Alternatives: runtime-appropriate unit/browser harnesses and distribution methods.
 Consequences: real destination checks stay manual; CI cannot certify external editor behavior from a local preview.
-Acceptance evidence: approved M6 test strategy, security controls, exact dependency/lockfile and license review, reproducible build, release/rollback proof. No workflow, hosting or test framework accepted.
+M5 acceptance evidence: compare test and delivery-tooling alternatives against the approved M5.1–3 requirements, record a provisional selection and rationale or explicitly defer it, and obtain owner approval. Recording this ADR does not authorize implementation, dependency adoption or deployment.
+Downstream validation: M6 approves the test strategy and security controls; exact dependency/version and license review is required before adoption; reproducible-build and release/rollback proof belongs to M8.2. These validate the selected path later and are not prerequisites for M5.4 ADR acceptance. No workflow, hosting or test framework is accepted by this proposal.
 
 ## Acceptance register
 
