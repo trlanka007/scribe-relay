@@ -16,7 +16,7 @@ Date/time, tester, OS/browser version, source revision, source SVG hash, PNG SHA
 
 1. F05: copy rendered selection from heading through Anchor B, paste once into a fresh personal Article draft, record text, image, placement, caption/alt controls and any warnings before correction. Allow autosave, leave and reopen through Manage > Drafts, record again.
 2. F06 body: in a fresh draft, enter anchors and insert the generated local PNG through native editor controls. Record actual placement, caption and alt availability, visible size/crop and steps. Reopen after autosave and inspect again.
-3. F06 cover: upload the PNG through the cover control in a distinct fresh draft. Record acceptance, crop, displayed text visibility and persistence separately from body media. Do not infer cover results from body results.
+3. F06 cover: in a distinct fresh draft, enter synthetic title and body text to begin writing, then upload the PNG through the cover control. Allow autosave, record cover acceptance, crop and displayed text visibility, leave and reopen through Manage > Drafts, and record whether the cover persists separately from body media. If saving or reopening cannot be confirmed, record persistence as Unknown. Do not infer cover results from body results.
 4. Repeat separately in Edge and Chrome. Do not publish. Manually delete synthetic drafts when finished.
 
 | Observation | At paste/upload | After reopen | Outcome / recovery |
