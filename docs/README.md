@@ -40,6 +40,8 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Canonical model and provenance review (M5.2)](architecture/canonical-document-model.md)
 - [Conversion specification review (M5.3)](architecture/conversion-specification.md)
 - [Destination adapter and profile review (M5.3)](architecture/destination-adapters.md)
+- [Technology stack evaluation (M5.4)](architecture/technology-stack.md)
+- [Proposed stack ADRs (M5.4)](architecture/adr/proposed-stack-decisions.md)
 
 ## Specification-driven backlog (proposed)
 - [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
