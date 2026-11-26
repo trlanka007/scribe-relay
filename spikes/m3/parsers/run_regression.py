@@ -1,6 +1,7 @@
 """Run isolated M3 parser experiments and record reproducibility evidence."""
 import hashlib
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -41,11 +42,13 @@ def main():
               "expected_blobs":EXPECTED, "actual_blobs":actual,
               "blobs_match":actual==EXPECTED, "runs":[]}
     if result["blobs_match"]:
+        child_env = os.environ.copy()
+        child_env.pop("PYTHONOPTIMIZE", None)
         for script in SCRIPTS:
             try:
-                p = subprocess.run([sys.executable,"-E","-X","utf8","-B",str(ROOT/script)],cwd=ROOT,
+                p = subprocess.run([sys.executable,"-X","utf8","-B",str(ROOT/script)],cwd=ROOT,
                                    capture_output=True,text=True,encoding="utf-8",errors="replace",
-                                   timeout=60)
+                                   timeout=60,env=child_env)
                 result["runs"].append({"script":script,"returncode":p.returncode,
                                        "stdout":p.stdout,"stderr":p.stderr})
             except subprocess.TimeoutExpired:
