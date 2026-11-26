@@ -19,6 +19,8 @@ Start at the first preparation action with source available and editor ready. St
 
 For each fixture and reference browser/device, perform three paired A/B runs as a baseline, using orders AB, BA, AB (reverse starting order on the next fixture). At M7 perform at least three paired A/C runs on the same fixture and comparable environment, using AC, CA, AC or reverse. Re-measure A when environment or editor changes materially. Keep fresh drafts, same tester, comparable starting state, and record practice runs separately. Three is the minimum, not statistical proof. Use identical target quality in each pair; record failed/abandoned attempts, do not substitute zeros or cherry-pick faster successes. Mark unavailable arms as unavailable with reason.
 
+For every run, link its completed [Article per-element result sheet](../testing/manual-linkedin-article-run-sheet.md#4-per-element-result-sheet-duplicate-for-each-run). The sheet must record paste and reopen observations for E01–E11, including text, structure, link targets and exact code whitespace/newlines. A pair is equivalent only when both arms have complete sheets for the same fixture and every element is observed at paste and reopen; any missing or Unknown element makes pair equivalence Unknown. Do not count such a pair among equivalent successful timing comparisons.
+
 ## Run record (duplicate per arm)
 
 | Field | Value |
@@ -29,6 +31,7 @@ For each fixture and reference browser/device, perform three paired A/B runs as 
 | Active seconds by preparation, transfer, correction, media, verification | Pending |
 | Idle seconds and reason / elapsed seconds | Pending |
 | Clicks, edits, media insertion actions | Pending |
+| Completed per-element result sheet for this run/arm (link or evidence reference) | Pending |
 | Expected inventory total, preserved, transformed, manual, unsupported, unknown | Pending |
 | Target equivalence and paste/reopen outcome | Pending |
 | Failed/abandoned reason, sanitized evidence | Pending |
@@ -43,4 +46,4 @@ The [ToolHa evaluation](competitor-evaluations.md) records a qualitative user ob
 
 ## Gate
 
-M3.5 remains open until manual baseline evidence is recorded or explicitly dispositioned by owner. M7 owns final A/C comparison. #151 parser reproducibility and F01–F08 destination validation are not waived. No production implementation, compatibility profile promotion or new acceptance targets.
+M3.5 remains open until both baseline arms—A/manual and B/ToolHa—have evidence, or the owner explicitly dispositions each unavailable arm. An unavailable or dispositioned arm is not a measured result and cannot support an A/B comparison or improvement claim. M7 owns final A/C comparison. #151 parser reproducibility and F01–F08 destination validation are not waived. No production implementation, compatibility profile promotion or new acceptance targets.
