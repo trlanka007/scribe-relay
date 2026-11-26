@@ -19,6 +19,7 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Dated official platform evidence recheck (M3.1)](research/official-platform-evidence-2026-11-25.md)
 - [Manual Article paste/reopen run sheet (M3.2)](testing/manual-linkedin-article-run-sheet.md)
 - [Interim parser feasibility synthesis (M3.4)](research/parser-feasibility-synthesis.md)
+- [Partial parser regression execution (M3.4)](research/parser-partial-regression-2026-11-26.md)
 - [Manual media run sheet (M3.3)](testing/manual-linkedin-media-run-sheet.md)
 - [Preparation effort benchmark (M3.5)](research/preparation-effort-benchmark.md)
 - [Interim feasibility gate review (M3.6)](research/feasibility-gate-review.md)
