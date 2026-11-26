@@ -36,6 +36,7 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Work-package catalog](engineering/work-packages.md)
 - [Execution backlog](engineering/execution-backlog.md)
 - [C4-inspired architecture views](architecture/c4/README.md)
+- [Solution architecture review preparation (M5.1)](architecture/solution-architecture.md)
 
 ## Specification-driven backlog (proposed)
 - [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
