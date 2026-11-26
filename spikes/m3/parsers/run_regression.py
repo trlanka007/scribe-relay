@@ -43,7 +43,7 @@ def main():
     if result["blobs_match"]:
         for script in SCRIPTS:
             try:
-                p = subprocess.run([sys.executable,"-E","-B",str(ROOT/script)],cwd=ROOT,
+                p = subprocess.run([sys.executable,"-E","-X","utf8","-B",str(ROOT/script)],cwd=ROOT,
                                    capture_output=True,text=True,encoding="utf-8",errors="replace",
                                    timeout=60)
                 result["runs"].append({"script":script,"returncode":p.returncode,
