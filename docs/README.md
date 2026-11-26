@@ -26,6 +26,9 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 - [Compatibility matrix](testing/formatting-compatibility-matrix.md)
 - [Synthetic fixtures](../tests/fixtures/README.md)
 
+## Experience design (proposed)
+- [Author personas, jobs and journeys (M4.1)](design/user-workflows.md)
+
 ## Zoomable planning and architecture (proposed)
 - [Milestone execution plan: 5,000 to ground level](engineering/milestone-execution-plan.md)
 - [Work-package catalog](engineering/work-packages.md)
