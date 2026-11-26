@@ -19,7 +19,7 @@ Start at the first preparation action with source available and editor ready. St
 
 For each fixture and reference browser/device, perform three paired A/B runs as a baseline, using orders AB, BA, AB (reverse starting order on the next fixture). At M7 perform at least three paired A/C runs on the same fixture and comparable environment, using AC, CA, AC or reverse. Re-measure A when environment or editor changes materially. Keep fresh drafts, same tester, comparable starting state, and record practice runs separately. Three is the minimum, not statistical proof. Use identical target quality in each pair; record failed/abandoned attempts, do not substitute zeros or cherry-pick faster successes. Mark unavailable arms as unavailable with reason.
 
-For every run, link its completed [Article per-element result sheet](../testing/manual-linkedin-article-run-sheet.md#4-per-element-result-sheet-duplicate-for-each-run). The sheet must record paste and reopen observations for E01–E11, including text, structure, link targets and exact code whitespace/newlines. A pair is equivalent only when both arms have complete sheets for the same fixture and every element is observed at paste and reopen; any missing or Unknown element makes pair equivalence Unknown. Do not count such a pair among equivalent successful timing comparisons.
+For every run, link a completed evidence sheet that covers the actual fixture inventory: use the [Article per-element result sheet](../testing/manual-linkedin-article-run-sheet.md#4-per-element-result-sheet-duplicate-for-each-run) for HTML E01–E11, the [media run sheet](../testing/manual-linkedin-media-run-sheet.md#separate-manual-runs) for media, and a run-specific per-element sheet based on the human-reviewed inventory for Markdown or DOCX. Record each expected item at the relevant paste or insertion step and again after reopen, including fixture-specific structure, link targets, code whitespace, image placement/content, captions and alt text where applicable. A pair is equivalent only when both arms use the same fixture and have complete, matching evidence for every expected item at each relevant checkpoint. Any missing or Unknown item makes pair equivalence Unknown. Do not count such a pair among equivalent successful timing comparisons.
 
 ## Run record (duplicate per arm)
 
@@ -31,7 +31,7 @@ For every run, link its completed [Article per-element result sheet](../testing/
 | Active seconds by preparation, transfer, correction, media, verification | Pending |
 | Idle seconds and reason / elapsed seconds | Pending |
 | Clicks, edits, media insertion actions | Pending |
-| Completed per-element result sheet for this run/arm (link or evidence reference) | Pending |
+| Completed fixture-specific result sheet for this run/arm (link or evidence reference) | Pending |
 | Expected inventory total, preserved, transformed, manual, unsupported, unknown | Pending |
 | Target equivalence and paste/reopen outcome | Pending |
 | Failed/abandoned reason, sanitized evidence | Pending |
