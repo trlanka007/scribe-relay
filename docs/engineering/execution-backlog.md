@@ -20,6 +20,7 @@ All experiments pending unless evidence says otherwise. Use [protocol](../resear
 | M3.3.c | Test native upload/cover and ordered placement | M3.3.a | F06 steps, time, reopen |
 | M3.4.a | Create synthetic DOCX/Markdown inventories and edge cases | approved scope | reviewed expected elements |
 | M3.4.b | Compare candidate parsers in disposable spikes | M3.4.a | F09/F10 fidelity, error and security notes |
+| M3.4.c | Validate aggregate parser runner in pinned environment | M3.4.b; approved scope | pins, ten blob identities and all eight runs recorded |
 | M3.5.a | Gather manual and ToolHa preparation baseline | M3.2.b | paired fixture timing protocol and baseline |
 | M3.6.a | Reconcile results into compatibility matrix | M3.2–5 | supported/unknown/fallback states with evidence |
 | M3.6.b | Review critical risks and scope changes | M3.6.a | owner decision; no unsupported claims |
