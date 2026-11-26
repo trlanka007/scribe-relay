@@ -75,3 +75,36 @@ OK
 ```
 
 18 unique test methods passed across two exact-blob scripts in this follow-up. This is not a pinned-environment aggregate run: six scripts remain unexecuted in this follow-up, the manifest is not fully verified locally, and two package pins differ. The safety probe uses deliberately small synthetic limits and a multiset reconciliation check, not full ordered semantics, OPC conformance or production security assurance. No source changes or acceptance promotion. #151 stays open.
+
+
+## OPC relationship regression (after PR #166 merge)
+
+Baseline main: 8199b7759273e57499467c6ce70ee1a74ba209c2. Actual execution in local Python 3.13.5 environment. Reused the previously reconstructed standard-library safety and disposition files and reconstructed the connector-fetched OPC source with LF line endings. Verified each Git blob against the repository manifest, then executed each using env -u PYTHONOPTIMIZE python -X utf8 -B <script>.
+
+| Script | Git blob | Result |
+|---|---|---|
+| safety_probe.py | ee9d3a953b294fbf9c2cba3de54548fe511ceedd | 11 tests, OK (0.003s) |
+| disposition_probe.py | 7f5f605728ba3e816b114f5c1b650a1c18162888 | 7 tests, OK (0.001s) |
+| opc_probe.py | cf5c48a6ec1623e2c7a89bbfab256db81c599b05 | 11 tests, OK (0.002s) |
+
+OPC test output (names and outcomes):
+
+```text
+test_cycle_is_finite ... ok
+test_duplicate ... ok
+test_invalid_targets ... ok
+test_malformed_target_aliases ... ok
+test_occurrences ... ok
+test_orphan_relationship_part ... ok
+test_raw_and_encoded_controls ... ok
+test_relative_and_absolute ... ok
+test_root ... ok
+test_scoped_ids ... ok
+test_unknown_mode ... ok
+Ran 11 tests in 0.002s
+OK
+```
+
+29 unique unittest methods passed across three exact-blob scripts; repeated safety/disposition runs are not additional unique coverage. The OPC results establish only the synthetic relationship subset: part-scoped IDs, repeated occurrence order, missing/external/unbound states, conservative target rejection, and finite cycle recording. They do not establish full OPC compliance or safe parsing of arbitrary Office documents.
+
+The installed pins remain markdown-it-py 4.2.0, mistune 3.2.1, python-docx 1.2.0 and Pillow 12.3.0; mistune and Pillow differ from the manifest requirements. No aggregate run, clean checkout or full manifest verification performed. The integrated probe source was inspected but not executed this iteration. Five child scripts remain to execute independently; #151 remains open until the exact pinned aggregate evidence is available. No source or dependency changes, compatibility promotion or gate acceptance.
