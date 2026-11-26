@@ -45,6 +45,7 @@ Status: Discovery, requirements and feasibility documentation merged; experiment
 
 ## Engineering readiness (proposed)
 - [Security and privacy threat model review (M6.1)](architecture/security-and-privacy.md)
+- [Testing strategy and acceptance traceability (M6.2)](testing/test-strategy.md)
 
 ## Specification-driven backlog (proposed)
 - [GitHub epic / feature / PBI / task index](engineering/github-backlog-index.md)
