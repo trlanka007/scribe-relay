@@ -136,3 +136,36 @@ OK
 34 unique unittest methods passed across four exact-blob scripts. Repeat executions are not counted as additional unique tests. This establishes bounded synthetic integration of archive preflight, relationship graph and main-story inventory with repeated/missing asset occurrences, external link/header relationship resolution and detection of changed block order. Header relationship resolution does not establish complete auxiliary-story text accounting. The image is placeholder bytes, not a validated or decoded raster. Reordering detection is not full semantic reconciliation or a production security guarantee.
 
 Four child scripts remain to execute independently (package_probe.py, generated_probe.py, markdown_probe.py, compare.py). The installed dependency versions and mismatches remain as recorded above; no clean pinned checkout, full ten-blob verification or aggregate execution performed. #151 stays open. No source/dependency changes, compatibility promotion, task closure or gate acceptance.
+
+
+## Generated Word document regression (after PR #168 merge)
+
+Baseline main: 0bea11d454cde9ffd87c3fda97c80dc8cc01d264. Actual container execution in this iteration: Python 3.13.5; installed markdown-it-py 4.2.0, mistune 3.2.1, python-docx 1.2.0, Pillow 12.3.0. The latter two mismatches with the requirements are mistune and Pillow (python-docx matches). No packages installed or changed.
+
+Reconstructed generated_probe.py from connector-fetched source and verified its Git blob and that of its existing local OPC dependency using git hash-object. Both matched the runner manifest:
+
+| File | Actual blob |
+|---|---|
+| generated_probe.py | a058788dd08819a87c92fc0da0c8137e6c58c2f2 |
+| opc_probe.py | cf5c48a6ec1623e2c7a89bbfab256db81c599b05 |
+
+Command: env -u PYTHONOPTIMIZE python -X utf8 -B generated_probe.py
+
+Actual output:
+
+```text
+test_asset_occurrences (__main__.Tests.test_asset_occurrences) ... ok
+test_header_accounting_boundary (__main__.Tests.test_header_accounting_boundary) ... ok
+test_ordered_blocks (__main__.Tests.test_ordered_blocks) ... ok
+test_paragraph_only_omits_table (__main__.Tests.test_paragraph_only_omits_table) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.375s
+
+OK
+exit=0
+```
+
+The generated fixture uses valid PNG bytes created by Pillow and a Word document generated with python-docx. Two inline image occurrences reference one asset; the XML and library ordered block views agree with the expected fixture; header text is separately accounted; paragraph-only access omits the table. This is not a test of arbitrary uploaded DOCX safety, image decoding of hostile inputs, full auxiliary-story coverage or destination fidelity.
+
+Earlier sections record historical results; this iteration independently establishes only the four generated-probe tests and the two local blob matches above. The earlier integrated-probe execution record was not independently confirmed in this iteration (its local file was absent); do not treat the previous cumulative count as a newly verified run. The full pinned aggregate, all ten local manifest blobs and a clean checkout remain outstanding. No source or dependency changes, task closure or gate approval. #151 remains open.
